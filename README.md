@@ -4,7 +4,7 @@
 
 Simon
 
-## Project Description 
+## Project Description
 
 My app is called Simon. This is an online game that allows players to attempt Simon's sequence challenges. Simon will always start off with a short sequence of buttons. Each time the player successfully copies Simon button by button, Simon will then challenge the player with a slightly longer sequence. The player continues playing until the player loses. This can either be a 1 or 2 player game.
 
@@ -33,4 +33,4 @@ My app is called Simon. This is an online game that allows players to attempt Si
 
 - As a player, I would like a victory animation when I win the game(if player 2-player), so that I feel good about my victory!
 - As a player, I would like to play this game online so that I don't have to have my challenger sitting next to me.
--As a player, I would like for every click of a button to be one more piece of a song.
+  -As a player, I would like for every click of a button to be one more piece of a song.

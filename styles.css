@@ -1,7 +1,14 @@
+/* html {
+	background-image: url("https://i.ibb.co/fX19xLf/Untitled-1.jpg");
+	background-size: 100%;
+
+} */
+
 body {
-	/* background-image: url("https://i.imgur.com/TUq26YH.jpg"); */
-    /* background-size: 100%; */
-    /* background-position: center; */
+	background-image: url("https://i.ibb.co/fX19xLf/Untitled-1.jpg");
+    background-size: cover;
+	background-repeat: no-repeat;
+	background-color: black;
 
 }
 header {
@@ -22,13 +29,19 @@ h2 {
 }
 .rules {
 }
+
+@keyframes flash {
+	from {filter: brightness(90%);}
+	to {filter: brightness(200%);}
+}
 .gameButtons {
 	width: 100px;
 	height: 50px;
-	border-top-right-radius: 50%;
-    transform: skew(30deg);
-    filter: brightness(70%)
+	/* animation-name: flash;
+	animation-duration: 2s; */
+	filter: brightness(50%);
 }
+
 
 #green {
     background-color: green;

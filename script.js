@@ -8,7 +8,6 @@ colorArray[1] = red;
 colorArray[2] = yellow;
 colorArray[3] = blue;
 
-
 const userClicks = [];
 const compClicks = [];
 // This function will handle what happens every time one of the colored buttons are clicked
@@ -18,34 +17,39 @@ function handleMainClick(event) {
 	event.target.style.filter = 'brightness(150%)';
 	userClicks.push(event.target.id);
 	console.log(userClicks);
-	userClicks.forEach((element) => {});
+	// userClicks.forEach((element) => {});
 }
 
 // this function will allow the game to start
 const startButton = document.querySelector('.startButton');
 startButton.addEventListener('click', handleStartButton);
+
 function handleStartButton(event) {
 	const randomIndex = Math.floor(Math.random() * 4);
-	console.log(randomIndex);
+	// console.log(randomIndex);
 	const newColor = colorArray[randomIndex];
 	compClicks.push(newColor);
 	console.log(compClicks);
 
 	for (let i = 0; i < compClicks.length; i++) {
-		console.log(event);
-		newColor.style.filter = 'brightness(175%)';
+		setTimeout(() => {
+			compClicks[i].style.filter = 'brightness(200%)';
+			setTimeout(timer, 500);
+			function timer() {
+				compClicks[i].style.filter = '';
+			}
+		}, (i + 1)*1000);
+
+		// compClicks[i].style.filter = 'brightness(100%)';
 	}
 }
 
-// if (handleStartButton()) {
-// }
+// // this button will allow the user to start a one player game
+// const onePlayer = document.querySelector('.onePlayerButton');
+// onePlayer.addEventListener('click', handleOnePlayer);
+// function handleOnePlayer() {}
 
-// this button will allow the user to start a one player game
-const onePlayer = document.querySelector('.onePlayerButton');
-onePlayer.addEventListener('click', handleOnePlayer);
-function handleOnePlayer() {}
-
-// this button will allow the user to start a 2 player game
-const twoPlayers = document.querySelector('.twoPlayerButton');
-twoPlayers.addEventListener('click', handleTwoPlayers);
-function handleTwoPlayers() {}
+// // this button will allow the user to start a 2 player game
+// const twoPlayers = document.querySelector('.twoPlayerButton');
+// twoPlayers.addEventListener('click', handleTwoPlayers);
+// function handleTwoPlayers() {}

@@ -5,11 +5,11 @@
 } */
 
 body {
-	background-image: url("https://i.ibb.co/fX19xLf/Untitled-1.jpg");
-    background-size: cover;
+	background-image: url('https://i.ibb.co/fX19xLf/Untitled-1.jpg');
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: black;
-
+	min-height: 100vh;
 }
 header {
 	color: blanchedalmond;
@@ -30,35 +30,103 @@ h2 {
 .rules {
 }
 
-@keyframes flash {
-	from {filter: brightness(90%);}
-	to {filter: brightness(200%);}
-}
 .gameButtons {
-	width: 100px;
-	height: 50px;
-	/* animation-name: flash;
-	animation-duration: 2s; */
+	/* width: 100px;
+	height: 50px; */
 	filter: brightness(50%);
+	text-align: center;
 }
-
-
+/*These shapes I got from: https://css-tricks.com/the-shapes-of-css/ */
 #green {
-    background-color: green;
-    transform: rotate(135deg);
+	border-style: solid;
+	border-color: transparent transparent green transparent;
+	border-width: 0 25px 25px 25px;
+	height: 0;
+	width: 50px;
+	box-sizing: content-box;
+	position: relative;
+	margin: 20px 0 50px 0;
+	display: inline-block;
+}
+#green:after {
+	content: '';
+	position: absolute;
+	top: 25px;
+	left: -25px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: green transparent transparent transparent;
+	border-width: 70px 50px 0 50px;
 }
 #red {
-    background-color: red;
-    transform: rotate(45deg);
+	position: relative;
+	width: 100px;
+	height: 90px;
+	display: inline-block;
+}
+#red:before,
+#red:after {
+	position: absolute;
+	content: '';
+	left: 75px;
+	top: 0;
+	width: 75px;
+	height: 120px;
+	background: red;
+	border-radius: 50px 50px 0 0;
+	transform: rotate(-45deg);
+	transform-origin: 0 100%;
+}
+#red:after {
+	left: 0;
+	transform: rotate(45deg);
+	transform-origin: 100% 100%;
 }
 #yellow {
-	background-color: yellow;
+	width: 0px;
+	height: 0px;
+	border-right: 60px solid transparent;
+	border-top: 60px solid yellow;
+	border-left: 60px solid yellow;
+	border-bottom: 60px solid yellow;
+	border-top-left-radius: 60px;
+	border-top-right-radius: 60px;
+	border-bottom-left-radius: 60px;
+	border-bottom-right-radius: 60px;
+	display: inline-block;
 }
 #blue {
-	background-color: blue;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 95px solid blue;
+	position: relative;
+	display: inline-block;
+}
+#blue:after {
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 95px solid blue;
+	position: absolute;
+	content: '';
+	top: 30px;
+	left: -50px;
 }
 
 .mainButtons {
 	text-align: center;
-	padding-bottom: 15vh;
+	padding-bottom: 50px;
+}
+
+.game-over {
+	background-color: blanchedalmond;
+	opacity: 0;
+	/* research overlay css */
+}
+.gameOver-title {
+	text-align: center;
 }

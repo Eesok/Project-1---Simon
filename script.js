@@ -3,10 +3,17 @@ const green = document.querySelector('#green');
 const red = document.querySelector('#red');
 const yellow = document.querySelector('#yellow');
 const blue = document.querySelector('#blue');
-const colorArray = [blue, red, yellow, blue];
+const colorArray = [green, red, yellow, blue];
 //empty arrays that can be used for both the user and cpu
 let userClicks = [];
 const compClicks = [];
+
+const soundEffects = {
+	blue: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
+	red: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
+	yellow: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'),
+	green: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'),
+};
 
 // this function will allow the game to start and continue with one more color flash incremented if user guesses correctly
 const startButton = document.querySelector('.startButton');
@@ -22,14 +29,16 @@ function handleStartButton(event) {
 
 	for (let i = 0; i < compClicks.length; i++) {
 		setTimeout(() => {
+			soundEffects[compClicks[i]['id']].play();
 			compClicks[i].style.filter = 'brightness(200%)';
 			setTimeout(timer, 500);
 			function timer() {
 				compClicks[i].style.filter = '';
 			}
-		}, (i + 1) * 1500);
+		}, (i + 1) * 1000);
 	}
 }
+
 //when user clicks any of the game buttons, this function will execute
 const colorClick = document.querySelectorAll('.gameButtons');
 for (let i = 0; i < colorArray.length; i++) {
@@ -37,6 +46,7 @@ for (let i = 0; i < colorArray.length; i++) {
 }
 function handleUserClick(event) {
 	setTimeout(() => {
+		soundEffects[event.target.id].play();
 		event.target.style.filter = 'brightness(200%)';
 		setTimeout(timer, 500);
 		function timer() {
@@ -47,20 +57,21 @@ function handleUserClick(event) {
 
 	userClicks.push(thisColor);
 	console.log(userClicks);
-	let arrCompClicks = JSON.stringify(compClicks);
-	let arrUserClicks = JSON.stringify(userClicks);
-	for (let j = 0; j < userClicks.length; j++) {
-		if (arrUserClicks === arrCompClicks) {
-			handleStartButton();
-		} else if (userClicks[j] !== compClicks[j]) {
-			console.log(false);
-		}
+
+	const indexOfLastUserClick = userClicks.length - 1;
+	if (userClicks[indexOfLastUserClick] !== compClicks[indexOfLastUserClick]) {
+		console.log('game over');
+		return gameOver();
+	} else if (indexOfLastUserClick === compClicks.length - 1) {
+		console.log('play next seq');
+		return handleStartButton();
 	}
 }
-
-const playerLoses = function () {
-	
-}
+const gameOverScreen = document.querySelector('.game-over');
+const gameOver = function () {
+	gameOverScreen.style.opacity = '1';
+};
+// to make max length 20, use slice() and check to see if it malfunctions when lower or higher than the number
 
 // // this button will allow the user to start a one player game
 // const onePlayer = document.querySelector('.onePlayerButton');

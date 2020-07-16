@@ -120,19 +120,23 @@ h2 {
 }
 
 #yellowButton {
-	padding: 120px 0 0 60vh;
+	left: 45vh;
+	bottom: 18vh;
 }
 #blueButton {
-	padding: 18vh 0 0 90vh;
+	bottom: 20vh;
+	left: 70vh;
+
 }
 #greenButton {
-	left: 62vh;
-	bottom: 25vh;
+	left: 45vh;
+	bottom: 40vh;
 }
 #redButton {
-	bottom: 25vh;
-	left: 87vh;
+	bottom: 40vh;
+	left: 67vh;
 }
+
 .container {
 	width: 90%;
 	max-width: 800px;
@@ -210,5 +214,5 @@ main {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	margin: -35vh auto;
+	margin: -30vh auto;
 }

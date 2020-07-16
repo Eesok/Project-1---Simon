@@ -65,7 +65,7 @@ function handleUserClick(event) {
 	if (userClicks[indexOfLastUserClick] !== compClicks[indexOfLastUserClick]) {
 		console.log('game over');
 		return gameOver();
-	} else if (userClicks.length == 4) {
+	} else if (userClicks.length == 15) {
 		return gameWon();
 	} else if (indexOfLastUserClick === compClicks.length - 1) {
 		console.log('play next seq');
@@ -74,9 +74,13 @@ function handleUserClick(event) {
 		return handleStartButton();
 	}
 }
+// const losingScore = document.querySelector('#over-score');
+// const newElement = losingScore.createElement('h1');
+// newElement.innerText = totalScore;
+
 const gameOverScreen = document.querySelector('.game-over');
 const gameOver = function () {
-	gameOverScreen.style.opacity = '1';
+	return window.open('game-over.html');
 };
 
 const gameWon = function () {

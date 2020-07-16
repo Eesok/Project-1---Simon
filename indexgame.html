@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Simon Game</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<header class="level-header">
+			<div class="container">
+				<div class="level-header__title">
+					<a href="homepage.html">
+						<h2 class="title">SIMON</h2>
+					</a>
+				</div>
+				<div class="header-score">
+					<h2>Total Score: &nbsp;</h2>
+					<h2 class="score">0</h2>
+				</div>
+			</div>
+		</header>
+		<div>
+			<h2>How to Play:</h2>
+			<ol type="I" class="rulesList">
+				<li class="rules">Click Start button to begin</li>
+				<li class="rules">Wait for the cpu to finish the sequence</li>
+				<li class="rules">Attempt to copy the sequence</li>
+				<li class="rules">When successful, cpu will add<br/> 1 more to the sequence</li>
+				<li class="rules">A score of 15 wins the game</li>
+			</ol>
+		</div>
+
+		<section>
+			<div class="mainButtons" id="greenButton">
+				<div id="green" class="gameButtons"></div>
+			</div>
+
+			<div class="mainButtons" id="redButton">
+				<div id="red" class="gameButtons"></div>
+			</div>
+
+			<div class="mainButtons" id="yellowButton">
+				<div id="yellow" class="gameButtons"></div>
+			</div>
+
+			<div class="mainButtons" id="blueButton">
+				<div id="blue" class="gameButtons"></div>
+			</div>
+		</section>
+		<div>
+			<button type="button" class="startButton">Start</button>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>

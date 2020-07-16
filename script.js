@@ -15,6 +15,9 @@ const soundEffects = {
 	green: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'),
 };
 
+let score = document.querySelector('.score');
+let totalScore = 0;
+
 // this function will allow the game to start and continue with one more color flash incremented if user guesses correctly
 const startButton = document.querySelector('.startButton');
 startButton.addEventListener('click', handleStartButton);
@@ -62,8 +65,12 @@ function handleUserClick(event) {
 	if (userClicks[indexOfLastUserClick] !== compClicks[indexOfLastUserClick]) {
 		console.log('game over');
 		return gameOver();
+	} else if (userClicks.length == 4) {
+		return gameWon();
 	} else if (indexOfLastUserClick === compClicks.length - 1) {
 		console.log('play next seq');
+		totalScore += 1;
+		score.innerHTML = totalScore;
 		return handleStartButton();
 	}
 }
@@ -71,7 +78,10 @@ const gameOverScreen = document.querySelector('.game-over');
 const gameOver = function () {
 	gameOverScreen.style.opacity = '1';
 };
-// to make max length 20, use slice() and check to see if it malfunctions when lower or higher than the number
+
+const gameWon = function () {
+	return window.open('end-of-game.html');
+};
 
 // // this button will allow the user to start a one player game
 // const onePlayer = document.querySelector('.onePlayerButton');

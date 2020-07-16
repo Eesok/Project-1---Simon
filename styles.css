@@ -1,23 +1,22 @@
-/* html {
-	background-image: url("https://i.ibb.co/fX19xLf/Untitled-1.jpg");
-	background-size: 100%;
-
-} */
-
 body {
 	background-image: url('https://i.ibb.co/fX19xLf/Untitled-1.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: black;
 	min-height: 100vh;
+	min-width: 100vh;
 }
 header {
 	color: blanchedalmond;
-	font-size: 36px;
 	text-align: center;
 	font-family: fantasy;
-	padding: 25px;
 	background-color: rgba(47, 79, 79, 0.6);
+}
+.header-score {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 h2 {
 	color: blanchedalmond;
@@ -30,12 +29,6 @@ h2 {
 .rules {
 }
 
-.gameButtons {
-	/* width: 100px;
-	height: 50px; */
-	filter: brightness(50%);
-	text-align: center;
-}
 /*These shapes I got from: https://css-tricks.com/the-shapes-of-css/ */
 #green {
 	border-style: solid;
@@ -46,7 +39,8 @@ h2 {
 	box-sizing: content-box;
 	position: relative;
 	margin: 20px 0 50px 0;
-	display: inline-block;
+	/* display: inline-block; */
+	
 }
 #green:after {
 	content: '';
@@ -63,7 +57,7 @@ h2 {
 	position: relative;
 	width: 100px;
 	height: 90px;
-	display: inline-block;
+	/* display: inline-block; */
 }
 #red:before,
 #red:after {
@@ -94,7 +88,8 @@ h2 {
 	border-top-right-radius: 60px;
 	border-bottom-left-radius: 60px;
 	border-bottom-right-radius: 60px;
-	display: inline-block;
+	/* display: inline-block; */
+	position: relative;
 }
 #blue {
 	width: 0;
@@ -103,7 +98,7 @@ h2 {
 	border-right: 50px solid transparent;
 	border-bottom: 95px solid blue;
 	position: relative;
-	display: inline-block;
+	/* display: inline-block; */
 }
 #blue:after {
 	width: 0;
@@ -119,14 +114,103 @@ h2 {
 
 .mainButtons {
 	text-align: center;
-	padding-bottom: 50px;
+	padding-bottom: 150px;
+	padding-right: 25px;
+	margin: -5vh auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+}
+.gameButtons {
+	filter: brightness(50%);
+	/* padding-left: 100px; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	/* margin: -5vh auto; */
+	/* padding: 0 100px ; */
 }
 
-.game-over {
-	background-color: blanchedalmond;
-	opacity: 0;
-	/* research overlay css */
-}
-.gameOver-title {
+.container {
+	width: 90%;
+	max-width: 800px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
+}
+.home-title {
+	text-transform: uppercase;
+	display: block;
+	position: relative;
+	font-size: 6rem;
+	letter-spacing: 10px;
+}
+.title-home:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 60%;
+	height: 4px;
+	transform: rotate(-10deg);
+	background-color: #111;
+}
+
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+}
+
+.buttonForGame {
+	padding: 1rem 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 1.25rem;
+	animation: 2s linear infinite blink;
+}
+.home main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+main {
+	min-height: 100vh;
+	display: flex;
+}
+.home {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: black;
+}
+.home-title {
+	color: white;
+}
+
+.startButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: -35vh auto;
 }
